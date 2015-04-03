@@ -22,7 +22,6 @@ if File.exist?(ARG_OUTPUT_FILE)
   exit 1
 end
 
-
 class EchRecordLe < BinData::Record
   endian :little
     int32 :callid
@@ -148,7 +147,8 @@ end
 
 if ARG_DIRECTION == 'to_text'
   Converter.convert_from_binary_to_text
+  puts "Binary file #{ARG_INPUT_FILE} successfully converted to text #{ARG_OUTPUT_FILE}"
 else
   Converter.convert_from_text_to_binary
+  puts "Text file #{ARG_INPUT_FILE} successfully converted to binary #{ARG_OUTPUT_FILE}"
 end
-puts "File #{ARG_INPUT_FILE} successfully converted to #{ARG_OUTPUT_FILE}"
