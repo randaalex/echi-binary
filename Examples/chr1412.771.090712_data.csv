@@ -1,2 +1,4 @@
 fileversion,11
 filenumber,23771
+columns
+callid,acwtime,onholdtime,consulttime,disptime,duration,segstart,segstop,talktime,netintime,origholdtime,dispivector,dispsplit,firstivector,split1,split2,split3,trunkgroup,tklocid,origlocid,answerlocid,obslocid,assist,audiodifficulty,conference,daqueued,holdabn,malicious,observingcall,transferred,agentreleased,acdnum,calldisp,disppriority,holds,segment,ansreason,origreason,dispsklevel,events0,events1,events2,events3,events4,events5,events6,events7,events8,ucid,dispvdn,eqloc,firstvdn,origlogid,anslogid,lastobserver,dialednumber,callingparty,collectdigits,cwcdigits,callingII,cwcs0,cwcs1,cwcs2,cwcs3,cwcs4

@@ -99,10 +99,11 @@ class Converter
     CSV.open(ARG_OUTPUT_METAFILE, 'w', { col_sep: ARG_DELIMITER }) do |csv|
       csv << [:fileversion, ech.fileversion]
       csv << [:filenumber,  ech.filenumber]
+      csv << [:columns]
+      csv << ech.records.first.snapshot.to_h.keys
     end
 
     CSV.open(ARG_OUTPUT_FILE, 'w', { col_sep: ARG_DELIMITER }) do |csv|
-      csv << ech.records.first.snapshot.to_h.keys
       ech.records.each do |record|
         csv << record.snapshot.to_h.values
       end
@@ -121,10 +122,6 @@ class Converter
 
     csv_file_rows = CSV.read(ARG_INPUT_FILE, { col_sep: ARG_DELIMITER })
     csv_file_rows.each_with_index do |row, index|
-      if index == 0
-        next
-      end
-
       record = EchRecordLe.new
       columns.each_with_index do |column_name, index2|
         if EchRecordLe.new.send(column_name).class.to_s =~ /(Int)|(Bit)/
