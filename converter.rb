@@ -146,84 +146,9 @@ class Converter
   end
 end
 
-
-#
-#
-# # # io = File.open("chr1412.771.090712")
-# # io = File.open("new.bin")
-# # # io2 = File.open("test.test", 'wb')
-# # ech = Ech.read(io)
-# #
-# #
-# # # CSV.open("myfile.csv", "w", {:col_sep => ","}) do |csv|
-# # CSV.open("new.myfile.csv", "w", {:col_sep => ","}) do |csv|
-# #   csv << [ ech[:fileversion], ech[:filenumber] ]
-# #   csv << ech.records.first.snapshot.to_h.keys
-# #   ech.records.each do |record|
-# #     csv << record.snapshot.to_h.values
-# #   end
-# # end
-# #
-# # exit
-# #
-# ech = Ech.new
-# columns = EchRecordLe.new.field_names
-#
-# arr_of_arrs = CSV.read("myfile.csv")
-# arr_of_arrs.each_with_index do |row, index|
-#   if index == 0
-#     ech[:fileversion], ech[:filenumber] = row.first.to_i, row.last.to_i
-#     next
-#   end
-#
-#   if index == 1
-#     next
-#   end
-#
-#   record = EchRecordLe.new
-#   columns.each_with_index do |column_name, index2|
-#     if EchRecordLe.new.send(column_name).class.to_s =~ /(Int)|(Bit)/
-#       record[column_name] = row[index2].to_i
-#     else
-#       record[column_name] = row[index2]
-#     end
-#   end
-#
-# ech[:records] << record
-# end
-#
-#
-# io2 = File.open("new.bin", 'wb')
-# string = ech.to_binary_s
-# io2.write(string)
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-# # ech[:fileversion] = 100500
-# # puts ech.inspect
-# # puts ech.class
-# # string = ech.to_binary_s
-# #puts string
-# # io2.write(string)
-# # io2.close
-#
-# # io3 = File.open("test.test", 'rb')
-# # ech2 = Ech.read(io3)
-# # puts ech2
-# #
 if ARG_DIRECTION == 'to_text'
   Converter.convert_from_binary_to_text
 else
   Converter.convert_from_text_to_binary
 end
-
-
+puts "File #{ARG_INPUT_FILE} successfully converted to #{ARG_OUTPUT_FILE}"
